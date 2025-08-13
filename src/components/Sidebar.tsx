@@ -40,10 +40,10 @@ const Sidebar = () => {
     <div className='hidden md:flex w-[260px] h-full bg-[#FFFFFF] border-r-1 border-[#E6EAEE]'>
         <div className="flex flex-col gap-3 mt-6 w-full">
             {menuList.map((list, index) => (
-                <div className="w-full bg-[#3976E8]">
-                    <Link href={list.url} className="py-[14px] px-[32px] flex items-center gap-2" key={index} >
+                <div className="w-full bg-[#3976E8]" key={index}>
+                    <Link href={list.url} className="py-[14px] px-[32px] flex items-center gap-2" >
                         <Image src={list.icon} alt={list.title} height={24} width={24}/>
-                        <span className="font-[400] text-[15px]">{list.title}</span>
+                        <span className="font-[400] text-[15px] text-[#04004D]">{list.title}</span>
                     </Link>
                 </div>
             ))}
