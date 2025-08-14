@@ -1,6 +1,6 @@
 import Chart from "@/modules/chart/ChartModule";
 import Widget from "@/modules/Widget";
-import Image from "next/image";
+
 
 export default function Home() {
   return (

@@ -3,7 +3,7 @@ import React from 'react'
 
 const Widget = () => {
   return (
-    <div className='w-[346px] md:w-[336px] h-[115px] border-[1px] border-[#E6EAEE] rounded-[5px] py-2 px-8 flex items-end bg-[#FFF]'>
+    <div className='w-full md:w-[336px] h-[115px] border-[1px] border-[#E6EAEE] rounded-[5px] py-2 px-8 flex items-end bg-[#FFF]'>
         <div className="flex flex-col gap-1 h-full w-full justify-center">
             <span className="text-[#8F8E8E] font-[500] text-[11px] leading-[24px]">ACCOUNT DETAILS</span>
             <span className='text-[#000000] font-[500] text-[11px] leading-[24px]'>STERLING BANK</span>
