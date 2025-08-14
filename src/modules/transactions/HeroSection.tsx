@@ -11,7 +11,7 @@ const options = [
 const HeroSection = () => {
   return (
     <section className='w-full flex flex-col gap-4'>
-        <div className='mt-4 md:h-[80px] w-full md:border-b-1 border-[#E6EAEE] flex items-center justify-between px-4 lg:px-[40px]'>
+        <div className='mt-4 md:h-[80px] w-full md:border-b-1 border-[#E6EAEE] flex items-center justify-between md:px-[20px] lg:px-[40px]'>
             <div className="flex items-center">
                 <Select options={options} className='text-[#2E2E2E] cursor-pointer text-[14px] border-0'/>
             </div>
@@ -29,7 +29,7 @@ const HeroSection = () => {
             </div>
         </div>
 
-        <div className="flex md:hidden items-center w-full justify-between px-4">
+        <div className="flex md:hidden items-center w-full justify-between">
             <span className="text-[#71717A] text-[16px] font-[500] leading-[100%]">Select Date Range:</span>
             <span className="">Date</span>
         </div>
