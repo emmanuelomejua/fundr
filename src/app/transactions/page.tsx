@@ -7,7 +7,7 @@ const Transactions = () => {
   return (
     <div className='h-full w-full px-5 md:px-0'>
       <HeroSection/>
-      <h4 className='inline-block md:hidden mt-8 text-[#111827] font-[600] text-[17px] leading-[150%]'>Transactions</h4>
+      <h4 className='inline-block lg:hidden mt-8 text-[#111827] font-[600] text-[17px] leading-[150%]'>Transactions</h4>
       <Card/>
       <Card/>
       <DataTable/>

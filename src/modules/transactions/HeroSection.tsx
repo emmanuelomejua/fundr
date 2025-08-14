@@ -1,6 +1,6 @@
 'use client';
 
-import BasicDateRangePicker from '@/components/inputs/DatePicker';
+import DateRangePicker from '@/components/inputs/CustomDate';
 import Select from '@/components/inputs/Select';
 import Image from 'next/image';
 import React from 'react'
@@ -22,7 +22,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-8">
                 <div className="hidden md:flex items-center gap-2">
                     <span className="text-[#71717A] text-[16px] font-[500] leading-[100%]">Select Date Range:</span>
-                    <BasicDateRangePicker/>
+                    <DateRangePicker/>
                 </div>
 
                 <div className="rounded-[8px] border-1 flex items-center gap-1 py-2 px-4 cursor-pointer bg-[#FFFFFF] border-[#D0D5DD]">

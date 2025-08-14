@@ -5,7 +5,7 @@ import React from 'react';
 
 const Card = () => {
   return (
-    <div className='md:hidden border-1 border-[#BEBEBE33] w-full h-[165px] mt-6 rounded-sm flex flex-col mx-auto pl-4'>
+    <div className='lg:hidden border-1 border-[#BEBEBE33] w-full h-[165px] mt-6 rounded-sm flex flex-col mx-auto pl-4'>
         <div className="border-b-1 border-[#BEBEBE33] flex items-center w-full justify-between py-2">
             <span className="text-[#252C32] text-[13px] font-[400] leading-[24px] px-1">AMOUNT:</span>
             <span className="text-[#252C32] text-[13px] font-[400] leading-[24px] px-1">70%</span>
