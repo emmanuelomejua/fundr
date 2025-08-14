@@ -6,7 +6,7 @@ const ChartHeader = () => {
     const vals = ['Today', 'Last 7 days', 'Last 30 days']
 
   return (
-    <div className='flex items-center justify-between py-[20px] px-[30px]'>
+    <div className='hidden md:flex items-center justify-between py-[20px] px-[30px]'>
         <div className="flex items-center gap-6">
             <span className="text-[14px] font-[600] leading-[100%]">Showing data for</span>
 
