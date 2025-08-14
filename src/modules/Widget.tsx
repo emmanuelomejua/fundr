@@ -8,10 +8,11 @@ const Widget = () => {
             <span className="text-[#8F8E8E] font-[500] text-[11px] leading-[24px]">ACCOUNT DETAILS</span>
             <span className='text-[#000000] font-[500] text-[11px] leading-[24px]'>STERLING BANK</span>
             <span className='text-[#000000] font-[700] text-[21px] leading-[24px]'>8000000000</span>
+            <span className="text-[#000000] font-[500] text-[11px] leading-[24px] md:hidden">OGEDENGBE FRUITS STORE</span>
         </div>
 
-        <div className="flex">
-            <div className="flex items-center gap-2 bg-[#9F56D433] rounded-[8px] w-max h-[28px] px-2 pt-1.5 pb-1 mb-2 cursor-pointer">
+        <div className="flex mb-5 md:mb-2">
+            <div className="flex items-center gap-2 bg-[#9F56D433] rounded-[8px] w-max h-[28px] px-2 pt-1.5 pb-1 cursor-pointer">
                 <Image src='/icons/copy.svg' alt='' width={16} height={16}/>
                 <span>Copy</span>
             </div>
