@@ -26,9 +26,9 @@ const columns: GridColDef[] = [
     flex: 1,
     sortable: false,
     renderCell: (params) => (
-        <div className={`flex items-center justify-center gap-1 rounded-2xl border-1 ${params.value === 'Processed' ? 'border-[#5DC090] ': 'border-[#F14156]'} w-[160px] h-[30px] mt-2`}>
-            <div className={`w-[5px] h-[5px] rounded-2xl ${params.value === 'Processed' ? 'bg-[#92EF80]': 'bg-[#FEECEE]'}`}/>
-            <span className={`${params.value === 'Processed' ? 'text-[#144909]': 'text-[#F14156]'} text-[9px] font-[500]`}> {params.value}</span>
+        <div className={`flex items-center justify-center gap-1 rounded-2xl border-1 ${params.value === 'Processed' ? 'border-[#5DC090] ': 'border-[#F14156]'} w-[160px] h-[30px] mt-3`}>
+            <div className={`w-[8px] h-[8px] rounded-2xl ${params.value === 'Processed' ? 'bg-[#92EF80]': 'bg-[#F14156]'}`}/>
+            <span className={`${params.value === 'Processed' ? 'text-[#144909]': 'text-[#F14156]'} text-[13px] font-[500]`}> {params.value}</span>
         </div>
     )
   },

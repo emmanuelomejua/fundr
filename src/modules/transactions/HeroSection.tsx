@@ -33,8 +33,8 @@ const HeroSection = () => {
         </div>
 
         <div className="flex md:hidden items-center w-full justify-between">
-            <span className="text-[#71717A] text-[16px] font-[500] leading-[100%]">Select Date Range:</span>
-            <span className="">Date</span>
+            <span className="text-[#71717A] text-[13px] font-[500] leading-[100%]">Select Date Range:</span>
+            <DateRangePicker/>
         </div>
     </section>
   )

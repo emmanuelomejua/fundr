@@ -2,8 +2,9 @@ import Image from 'next/image';
 import React from 'react'
 
 const Navbar = () => {
+
   return (
-    <div className='h-[80px] border-b-1 border-[#E6EAEE]'>
+    <div className='h-[80px] border-b-1 border-[#E6EAEE] w-full'>
         <div className="w-full h-full flex items-center justify-between px-4">
             <Image src='/icons/menu.svg' alt='Menu' height={24} width={24} className='md:hidden'/>
             <Image src='/icons/logo.svg' alt='Logo'height={25} width={90} />
