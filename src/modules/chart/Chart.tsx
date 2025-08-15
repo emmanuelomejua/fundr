@@ -1,59 +1,12 @@
 'use client';
 
 import Select from '@/components/inputs/Select';
-import React,  { useEffect, useMemo, useState } from 'react';
+import { fetchRevenue } from '@/redux/slice/revenueSlice';
+import { AppDispatch, RootState } from '@/redux/store';
+import { CircularProgress } from '@mui/material';
+import React,  { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-const data = [
-  {
-    name: 'Jan',
-    revenue: 4000,
-  },
-  {
-    name: 'Feb',
-    revenue: 3000,
-  },
-  {
-    name: 'Mar',
-    revenue: 2000,
-  },
-  {
-    name: 'Apr',
-    revenue: 2780,
-  },
-  {
-    name: 'May',
-    revenue: 1890,
-  },
-  {
-    name: 'Jun',
-    revenue: 2390,
-  },
-  {
-    name: 'Jul',
-    revenue: 3490,
-  },
-  {
-    name: 'Aug',
-    revenue: 3490,
-  },
-    {
-    name: 'Sep',
-    revenue: 3490,
-  },
-    {
-    name: 'Oct',
-    revenue: 3490,
-  },
-    {
-    name: 'Nov',
-    revenue: 3490,
-  },
-    {
-    name: 'Dec',
-    revenue: 3490,
-  },
-];
 
 
 function useIsMobile(breakpoint = 768) {
@@ -81,8 +34,16 @@ const options = [
 
 const Chart = () => {
 
-    const isMobile = useIsMobile(768);
-    const chartData = isMobile ? data.slice(0, 6) : data;
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, loading } = useSelector((state: RootState) => state.revenue)
+
+  const isMobile = useIsMobile(768);
+  const chartData = isMobile ? data.slice(0, 6) : data;
+
+  useEffect(() => {
+    dispatch(fetchRevenue());
+  }, [dispatch]);
+
 
   return (
     <div className="flex flex-col bg-[#fff] h-[291px] md:h-[391px] w-[336px] md:w-[768px] lg:w-[1000px] mx-auto rounded-[6px] p-1 md:p-5 lg:p-[25px] gap-2 ">
@@ -102,17 +63,22 @@ const Chart = () => {
                 <span className="text-[#000000] text-[13px] font-[400] leading-[24px]">in total value</span>
             </div>
         </div>
-        <ResponsiveContainer width='90%' height='100%'>
-        <BarChart
-            data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} />
-            <XAxis dataKey="name" axisLine={false} />
-            <YAxis axisLine={false} />
-            {/* <Tooltip /> */}
-            <Bar dataKey="revenue" fill="#FFC145" barSize={17} activeBar={<Rectangle fill="gold" stroke="purple" />} />
-        </BarChart>
-        </ResponsiveContainer>
+          {loading ?
 
+          <div className="flex items-center justify-center w-full h-full bg-[#c9b6b65d]">
+            <CircularProgress/>
+          </div>:
+          <ResponsiveContainer width='90%' height='100%'>
+          <BarChart
+              data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} />
+              <XAxis dataKey="name" axisLine={false} />
+              <YAxis axisLine={false} />
+              {/* <Tooltip /> */}
+              <Bar dataKey="revenue" fill="#FFC145" barSize={17} activeBar={<Rectangle fill="gold" stroke="purple" />} />
+          </BarChart>
+        </ResponsiveContainer>
+          }
     </div>
   );
 };
