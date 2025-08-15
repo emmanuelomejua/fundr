@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchRevenue = createAsyncThunk('revenue/fetchRevenue', async () => {
 
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
 
   return [
     { name: 'Jan', revenue: 4000 },
@@ -35,7 +35,7 @@ const revenueSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchRevenue.fulfilled, (state: any, action) => {
-        state.loading = false;
+        state.loading = true;
         state.data = action.payload;
       })
       .addCase(fetchRevenue.rejected, (state: any, action) => {

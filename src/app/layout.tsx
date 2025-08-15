@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
-import { Provider } from "react-redux";
-import { store } from "@/redux/store";
+import ReduxProvider from "@/util/ReduxProvider";
+
 
 
 const inter = Inter({
@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased`}
       >
-        <Provider store={store}>
+        <ReduxProvider>
           <div className="max-w-[1440px] w-full h-full flex flex-col">
 
             <div className="flex h-full">
@@ -37,7 +37,7 @@ export default function RootLayout({
             {children}
             </div>
           </div>
-        </Provider>
+        </ReduxProvider>
       </body>
     </html>
   );
