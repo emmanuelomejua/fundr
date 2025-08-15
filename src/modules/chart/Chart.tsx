@@ -32,7 +32,7 @@ const options = [
     {label: 'Monthly', value: 'Weekly'},
 ]
 
-const Chart = async () => {
+const Chart = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const { data, loading } = useSelector((state: RootState) => state.revenue)
@@ -44,7 +44,6 @@ const Chart = async () => {
     dispatch(fetchRevenue());
   }, [dispatch]);
 
-  console.log(data, 'data...');
 
   return (
     <div className="flex flex-col bg-[#fff] h-[291px] md:h-[391px] w-[336px] md:w-[768px] lg:w-[1000px] mx-auto rounded-[6px] p-1 md:p-5 lg:p-[25px] gap-2 ">
@@ -66,9 +65,8 @@ const Chart = async () => {
         </div>
           {loading ?
 
-          <div className="flex w-full h-full m-auto text-[#000] bg-black">
+          <div className="flex items-center justify-center w-full h-full bg-[#c9b6b65d]">
             <CircularProgress/>
-            <span className="">Loading...</span>
           </div>:
           <ResponsiveContainer width='90%' height='100%'>
           <BarChart

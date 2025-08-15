@@ -35,7 +35,7 @@ const revenueSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchRevenue.fulfilled, (state: any, action) => {
-        state.loading = true;
+        state.loading = false;
         state.data = action.payload;
       })
       .addCase(fetchRevenue.rejected, (state: any, action) => {
