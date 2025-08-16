@@ -4,7 +4,7 @@ import { revenueData } from '@/data/revenueData';
 
 export const fetchRevenue = createAsyncThunk('revenue/fetchRevenue', async () => {
 
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
 
   return revenueData
 });

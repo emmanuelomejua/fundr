@@ -7,10 +7,15 @@ const mockRevenueData = [
   { name: "Feb", revenue: 7000 },
 ];
 
-// Mock the API call inside fetchRevenue
-jest.mock("../api/revenueApi", () => ({
-  getRevenue: jest.fn(() => Promise.resolve(mockRevenueData)),
+// Mock the import that revenueSlice uses
+jest.mock("@/data/revenueData", () => ({
+  revenueData: [
+    { name: "Jan", revenue: 5000 },
+    { name: "Feb", revenue: 7000 },
+  ],
 }));
+
+import { revenueData } from "@/data/revenueData";
 
 describe("revenueSlice", () => {
   it("should handle loading and data on fetchRevenue", async () => {
@@ -18,24 +23,42 @@ describe("revenueSlice", () => {
       reducer: { revenue: revenueReducer },
     });
 
-    // Initially loading should be false
+    // Initial state
     let state = store.getState().revenue;
     expect(state.loading).toBe(false);
     expect(state.data).toEqual([]);
 
-    // Dispatch async thunk
+    // Dispatch thunk
     const actionPromise = store.dispatch(fetchRevenue());
 
-    // After dispatch but before it resolves — loading should be true
+    // While pending
     state = store.getState().revenue;
     expect(state.loading).toBe(true);
 
-    // Wait for thunk to finish
+    // Wait for thunk
     await actionPromise;
 
-    // After resolution — loading should be false and data should be updated
+    // Final state
     state = store.getState().revenue;
     expect(state.loading).toBe(false);
-    expect(state.data).toEqual(mockRevenueData);
+    expect(state.data).toEqual(revenueData); // comes from our mocked data
+    expect(state.error).toBeNull();
+  });
+
+  it("should handle rejected case manually", () => {
+    const store = configureStore({
+      reducer: { revenue: revenueReducer },
+    });
+
+    const rejectedAction = fetchRevenue.rejected(
+      { message: "Failed to fetch" } as any,
+      "req123"
+    );
+
+    store.dispatch(rejectedAction);
+
+    const state = store.getState().revenue;
+    expect(state.loading).toBe(false);
+    expect(state.error).toBe("Failed to fetch");
   });
 });
