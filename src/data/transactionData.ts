@@ -1,0 +1,16 @@
+export const transactionData = [
+    { amount: '₦43,644', ID: 'TR_8401857902', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+    { amount: '₦43,644', ID: 'TR_8401857903', type: 'Request', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
+    { amount: '₦43,644', ID: 'TR_8401857904', type: 'Deposit', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+    { amount: '₦43,644', ID: 'TR_8401857908', type: 'Withdrawal', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+    { amount: '₦43,644', ID: 'TR_8401857905', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+    { amount: '₦43,644', ID: 'TR_8401857906', type: 'Deposit', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
+    { amount: '₦43,644', ID: 'TR_8401857907', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
+    { amount: '₦43,644', ID: 'TR_8401857909', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
+    { amount: '₦43,644', ID: 'TR_8401857910', type: 'Withdrawal', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
+    { amount: '₦43,644', ID: 'TR_8401857911', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+    { amount: '₦43,644', ID: 'TR_8401857912', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+    { amount: '₦43,644', ID: 'TR_8401857913', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+    { amount: '₦43,644', ID: 'TR_8401857914', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+    { amount: '₦43,644', ID: 'TR_8401857915', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
+]

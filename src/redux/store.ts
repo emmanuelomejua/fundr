@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import revenueReducer from './slice/revenueSlice';
+import revenueReducer from './slice/revenue/revenueSlice';
+import transactionReducer from './slice/transaction/transactionSlice'
 
 export const store = configureStore({
   reducer: {
     revenue: revenueReducer,
+    transactions: transactionReducer
   },
 });
 
