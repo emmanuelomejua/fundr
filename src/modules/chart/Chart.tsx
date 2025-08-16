@@ -1,7 +1,7 @@
 'use client';
 
 import Select from '@/components/inputs/Select';
-import { fetchRevenue } from '@/redux/slice/revenueSlice';
+import { fetchRevenue } from '@/redux/slice/revenue/revenueSlice';
 import { AppDispatch, RootState } from '@/redux/store';
 import { CircularProgress } from '@mui/material';
 import React,  { useEffect, useState } from 'react';

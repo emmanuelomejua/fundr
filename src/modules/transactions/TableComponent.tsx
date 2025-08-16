@@ -3,6 +3,10 @@
 import * as React from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '@/redux/store';
+import { CircularProgress } from '@mui/material';
+import { getTransactions } from '@/redux/slice/transaction/transactionSlice';
 
 const columns: GridColDef[] = [
   { field: 'amount', headerName: 'Amount', width: 100 },
@@ -34,47 +38,37 @@ const columns: GridColDef[] = [
   },
 ];
 
-const rows = [
-  { amount: '₦43,644', ID: 'TR_8401857902', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-  { amount: '₦43,644', ID: 'TR_8401857903', type: 'Request', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
-  { amount: '₦43,644', ID: 'TR_8401857904', type: 'Deposit', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-  { amount: '₦43,644', ID: 'TR_8401857908', type: 'Withdrawal', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-  { amount: '₦43,644', ID: 'TR_8401857905', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-  { amount: '₦43,644', ID: 'TR_8401857906', type: 'Deposit', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
-  { amount: '₦43,644', ID: 'TR_8401857907', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
-  { amount: '₦43,644', ID: 'TR_8401857909', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
-  { amount: '₦43,644', ID: 'TR_8401857910', type: 'Withdrawal', date: 'Feb 12, 2022', time: '10:30AM', status: 'Failed' },
-  { amount: '₦43,644', ID: 'TR_8401857911', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-  { amount: '₦43,644', ID: 'TR_8401857912', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-  { amount: '₦43,644', ID: 'TR_8401857913', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-  { amount: '₦43,644', ID: 'TR_8401857914', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-  { amount: '₦43,644', ID: 'TR_8401857915', type: 'Transfer', date: 'Feb 12, 2022', time: '10:30AM', status: 'Processed' },
-];
 
 const paginationModel = { page: 0, pageSize: 7 };
 
 export default function DataTable() {
 
-    const [mounted, setMounted] = React.useState(false);
+    const dispatch = useDispatch<AppDispatch>();
+    const { data, loading } = useSelector((state: RootState) => state.transactions);
 
     React.useEffect(() => {
-        setMounted(true)
-    })
+        dispatch(getTransactions())
+    }, [dispatch])
 
-    if(!mounted) return null
+
+    
 
   return (
     <div className="hidden lg:flex lg:w-[1090px] mt-5 rounded-sm mx-auto bg-[#fff]">
         <Paper sx={{ height: 500, width: '100%', backgroundColor: '#FFFFFF' }}>
-        <DataGrid
-            rows={rows}
-            columns={columns}
-            initialState={{ pagination: { paginationModel } }}
-            pageSizeOptions={[5, 10]}
-            checkboxSelection
-            sx={{ border: 0 }}
-            getRowId={(r) => r.ID}
-        />
+          {loading ?
+            <div className="flex items-center justify-center w-full h-full bg-[#d5acac49]">
+              <CircularProgress/>
+            </div>:
+          <DataGrid
+              rows={data}
+              columns={columns}
+              initialState={{ pagination: { paginationModel } }}
+              pageSizeOptions={[5, 10]}
+              checkboxSelection
+              sx={{ border: 0 }}
+              getRowId={(r) => r.ID}
+          />}
         </Paper>
     </div>
   );
