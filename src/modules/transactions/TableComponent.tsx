@@ -50,12 +50,9 @@ export default function DataTable() {
         dispatch(getTransactions())
     }, [dispatch])
 
-
-    
-
   return (
-    <div className="hidden lg:flex lg:w-[1090px] mt-5 rounded-sm mx-auto bg-[#fff]">
-        <Paper sx={{ height: 500, width: '100%', backgroundColor: '#FFFFFF' }}>
+    <div className="hidden lg:flex lg:w-[1090px] mt-5 rounded-sm mx-auto bg-[#fff] h-[500px]">
+        <Paper sx={{ flex: 1, width: '100%', height: '100%', backgroundColor: '#FFFFFF' }}>
           {loading ?
             <div className="flex items-center justify-center w-full h-full bg-[#d5acac49]">
               <CircularProgress/>
@@ -63,10 +60,10 @@ export default function DataTable() {
           <DataGrid
               rows={data}
               columns={columns}
+              sx={{ width: '1090px', border: 0, height: '500px' }}
               initialState={{ pagination: { paginationModel } }}
               pageSizeOptions={[5, 10]}
               checkboxSelection
-              sx={{ border: 0 }}
               getRowId={(r) => r.ID}
           />}
         </Paper>
