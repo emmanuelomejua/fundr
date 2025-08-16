@@ -50,9 +50,6 @@ export default function DataTable() {
         dispatch(getTransactions())
     }, [dispatch])
 
-
-    
-
   return (
     <div className="hidden lg:flex lg:w-[1090px] mt-5 rounded-sm mx-auto bg-[#fff]">
         <Paper sx={{ height: 500, width: '100%', backgroundColor: '#FFFFFF' }}>
